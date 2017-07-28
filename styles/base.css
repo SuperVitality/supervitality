@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(15, 25, 55);
+}
+
+.wrapper {
+    display: block;
+}
+
+.logoContainer {
+    position: absolute;
+    width: 50%;
+    padding-top: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*background-color: white;*/
+}
+
+.heartBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6.25%;
+    height: 6.25%;
+    background-color: white;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(90deg); }
+}
