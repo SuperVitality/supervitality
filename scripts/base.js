@@ -42,6 +42,7 @@ function generateBoxes() {
     for (iter = 0; iter < hPartsCount; iter++) {
         if(heartParts[iter] != 0) {
             if(heartParts[iter] == 1) {
+                ///lol
                 heartBox = document.createElement("div");
                 heartBox.setAttribute("class", "heartBox");
                 x = Math.floor(iter / 16);
