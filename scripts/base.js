@@ -26,12 +26,12 @@ function setupAnim(elem, delay) {
     
     setTimeout(function() {
         elem.style.animation = "spin";
-        elem.style.animationDuration = "3s";
+        elem.style.animationDuration = "1s";
     }, delay);
     
     setTimeout(function() {
-        elem.style.transform = "scale(1) rotate(0)";
-    }, delay + 3000)
+        elem.className = "heartBoxFinal";
+    }, delay + 1)
 }
 
 function generateBoxes() {
@@ -42,7 +42,6 @@ function generateBoxes() {
     for (iter = 0; iter < hPartsCount; iter++) {
         if(heartParts[iter] != 0) {
             if(heartParts[iter] == 1) {
-                ///lol
                 heartBox = document.createElement("div");
                 heartBox.setAttribute("class", "heartBox");
                 x = Math.floor(iter / 16);

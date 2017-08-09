@@ -30,11 +30,22 @@ body {
     background-color: white;
     border-radius: 6px;
     transform: scale(0);
-    animation-timing-function: ease;
+    animation-timing-function: ease-in-out;
+}
+
+.heartBoxFinal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6.25%;
+    height: 6.25%;
+    background-color: white;
+    border-radius: 6px;
+    transform: scale(1) rotate(0deg);
 }
 
 @keyframes spin {
     0% { transform: scale(0) rotate(0deg); }
-    50% { transform: scale(1.4) rotate(180deg) }
+    25% { transform: scale(2) rotate(180deg); }
     100% { transform: scale(1) rotate(360deg); }
 }
