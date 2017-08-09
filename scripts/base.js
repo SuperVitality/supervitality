@@ -28,6 +28,10 @@ function setupAnim(elem, delay) {
         elem.style.animation = "spin";
         elem.style.animationDuration = "3s";
     }, delay);
+    
+    setTimeout(function() {
+        elem.style.transform = "scale(1) rotate(0)";
+    }, delay + 3000)
 }
 
 function generateBoxes() {
@@ -48,7 +52,7 @@ function generateBoxes() {
                 animIndex = heartAnim.indexOf(iter);
                 
                 if(animIndex != -1) {
-                    delay = 1000 + (animIndex * 50);
+                    delay = 1000 + (animIndex * 62.5);
                     setupAnim(heartBox, delay);
                 }
                 

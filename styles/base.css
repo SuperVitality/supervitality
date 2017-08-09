@@ -29,9 +29,10 @@ body {
     height: 6.25%;
     background-color: white;
     border-radius: 6px;
+    transform: scale(0);
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { transform: scale(0) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
 }
