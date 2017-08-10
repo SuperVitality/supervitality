@@ -21,31 +21,62 @@ body {
     /*background-color: white;*/
 }
 
-.heartBox {
+.heartBoxRim {
     position: absolute;
     top: 0;
     left: 0;
     width: 6.25%;
     height: 6.25%;
     background-color: white;
-    border-radius: 6px;
+    /* border-radius: 20%; */
     transform: scale(0);
     animation-timing-function: ease-in-out;
+    z-index: -100;
 }
 
-.heartBoxFinal {
+.heartBoxRimFinal {
     position: absolute;
     top: 0;
     left: 0;
     width: 6.25%;
     height: 6.25%;
     background-color: white;
-    border-radius: 6px;
+    /* border-radius: 20%; */
     transform: scale(1) rotate(0deg);
+    transition: 0.2s;
+    z-index: -100;
+}
+
+.heartBoxFill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6.25%;
+    height: 6.25%;
+    background-color: red;
+    animation-timing-function: ease-in-out;
+    z-index: -10;
+    transform: scale(0);
+}
+
+.heartBoxFillFinal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6.25%;
+    height: 6.25%;
+    background-color: red;
+    transform: scale(1);
 }
 
 @keyframes spin {
-    0% { transform: scale(0) rotate(0deg); }
-    25% { transform: scale(2) rotate(180deg); }
-    100% { transform: scale(1) rotate(360deg); }
+    0% { transform: scale(0) rotate(0deg); border-radius: 100%; }
+    25% { transform: scale(2) rotate(180deg); border-radius: 0%; }
+    100% { transform: scale(1) rotate(360deg); border-radius: 0%; }
+}
+
+@keyframes pop {
+    0% { transform: scale(0); border-radius: 100%; }
+    25% { transform: scale(2); border-radius: 0%; }
+    100% { transform: scale(1); border-radius: 0%; }
 }
