@@ -7,18 +7,135 @@ body {
     background-color: rgb(15, 25, 55);
 }
 
-.wrapper {
-    display: block;
+/**/
+
+@media (min-width: 0px) {
+
+    #navBar.webActive {
+        position: absolute;
+        width: 96px;
+        height: 96px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    
 }
 
-.logoContainer {
+#navBar, #content {
+    opacity: 0;
+}
+
+@media (orientation:landscape) {
+
+    .wrapper {
+        flex-flow: column;
+    }
+    
+    #navBar.webActive {
+        position: relative;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        flex: 0 1 96px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        opacity: 1;
+    }
+    
+    #navBar .navBarBuffer {
+        width: 10%
+    }
+    
+    #navBar .navButton:hover {
+        top: 32px;
+    }
+    
+    #content.webActive {
+        position: relative;
+        flex: 1 1 auto;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        opacity: 1;
+    }
+    
+}
+
+@media (orientation:portrait) {
+    
+    .wrapper {
+        flex-flow: row;
+    }
+
+    #navBar.webActive {
+        position: relative;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        flex: 0 1 96px;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        opacity: 1;
+    }
+    
+    #navBar .navBarBuffer {
+        height: 20%
+    }
+    
+    #navBar .navButton:hover {
+        left: 32px;
+    }
+    
+    #content.webActive {
+        position: relative;
+        flex: 1 1 auto;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        opacity: 1;
+    }
+}
+
+/**/
+
+.navButton {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    /*background-color: black;*/
+    margin: 16px;
+}
+
+.navButton:hover {
+    transform: scale(2);
+}
+
+/**/
+
+.wrapper {
+    display: flex;
+    height: 100%;
+}
+
+#logoContainer {
     position: absolute;
+    display: flex;
     width: 50%;
     padding-top: 50%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: scale(1) translate(-50%, -50%);
     /*background-color: white;*/
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+    z-index: 100;
+}
+
+#logoContainer > div {
+    display: inline-flex;
+}
+
+#logoContainer.webActive {
+    top: 48px;
+    left: 48px;
+    transform: scale(0.2) translate(-200%, -200%);
 }
 
 .heartBoxRim {
@@ -77,6 +194,12 @@ body {
 
 @keyframes pop {
     0% { transform: scale(0); border-radius: 100%; }
+    25% { transform: scale(2); border-radius: 0%; }
+    100% { transform: scale(1); border-radius: 0%; }
+}
+
+@keyframes popbeat {
+    0% { transform: scale(1); border-radius: 100%; }
     25% { transform: scale(2); border-radius: 0%; }
     100% { transform: scale(1); border-radius: 0%; }
 }

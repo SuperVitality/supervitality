@@ -1,4 +1,4 @@
-var heartParts, heartAnim, logoContainerElem;
+var heartParts, heartAnim, logoContainerElem, navBarElem, contentElem;
 
 heartParts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
               0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -22,6 +22,7 @@ heartParts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
 heartRimAnim = [ 72, 57, 42, 43, 44, 61, 78, 94, 110, 126, 141, 156, 171, 186, 201, 216, 215, 198, 181, 164, 147, 130, 113, 97, 81, 65, 50, 35, 36, 37, 54, 71 ];
 heartFillAnim = [ 120, 136, 135, 119, 103, 104, 105, 121, 137, 153, 152, 151, 150, 134, 118, 102, 86, 87, 88, 89, 90, 106, 122, 138, 154, 170, 169, 168, 167, 166, 165, 149, 133, 117, 101, 85, 69, 70, 73, 74, 75, 91, 107, 123, 139, 155, 185, 184, 183, 182, 148, 132, 116, 100, 84, 68, 52, 53, 58, 59, 60, 76, 92, 108, 124, 140, 200, 199, 131, 115, 99, 83, 67, 51, 77, 93, 109, 125, 114, 98, 82, 66 ]
+heartBeatAnim = [];
 
 function setupRingAnim(elem, delay) {
     
@@ -54,13 +55,13 @@ function hoverBack(evt) {
     evt.target.style.zIndex = "-999";
 }
 
-function generateBoxes() {
+function generateHeart() {
     var iter, hPartsCount, heartBox, x, y, animIndex, delay;
     
     hPartsCount = heartParts.length;
     
     for (iter = 0; iter < hPartsCount; iter++) {
-        if(heartParts[iter] != 0) {
+        if (heartParts[iter] != 0) {
             if(heartParts[iter] == 1) {
                 heartBox = document.createElement("div");
                 heartBox.setAttribute("class", "heartBoxRim");
@@ -92,6 +93,8 @@ function generateBoxes() {
                 
                 logoContainerElem.appendChild(heartBox);
                 
+                heartBeatAnim.push(heartBox);
+                
                 animIndex = heartFillAnim.indexOf(iter);
                 
                 if(animIndex != -1) {
@@ -101,20 +104,38 @@ function generateBoxes() {
             }  
         }
     }
+    
+    setTimeout(function () {
+        logoContainerElem.setAttribute("class", "webActive");
+        navBarElem.setAttribute("class", "webActive");
+        contentElem.setAttribute("class", "webActive");
+    }, 4000);
 }
 
+/*
 function contextMenu(evt) {
     evt.preventDefault();
     console.log(evt.target.getAttribute("id"));
+}
+*/
+
+function heartbeat(evt) {
+    for (iter = 0; iter < heartBeatAnim.length; iter++) {
+        
+    }
 }
 
 function init() {
     
     //document.addEventListener("contextmenu", contextMenu);
     
-    logoContainerElem = document.getElementsByClassName("logoContainer")[0];
+    document.addEventListener("onclick", heartbeat);
     
-    generateBoxes();
+    logoContainerElem = document.getElementById("logoContainer");
+    navBarElem = document.getElementById("navBar");
+    contentElem = document.getElementById("content");
+    
+    generateHeart();
     
 }
 
